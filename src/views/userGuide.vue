@@ -10,10 +10,10 @@ let baseURL = ref(`https://xyy.huijiwiki.com/wiki/`)
     <n-li>可以留空，不必全部填写。</n-li>
     <n-li>记得保存，保存后要等待一段时间（最多24小时）页面才会刷新。</n-li>
     <n-li>大部分数据已经过校对，如确信要修改请在编辑摘要内简要说明理据。</n-li>
-    <n-li
-      >每次进入代码编辑器都会同步一次数据，导致原来的代码排版丢失。按 <n-text code>Ctrl</n-text> +
+    <!-- <n-li
+      >每次进入代码编辑器都会同步一次数据，导致原来的代码排版丢失。按 <n-text code>Shift</n-text> +
       <n-text code>Alt</n-text> + <n-text code>F</n-text> 可以自动排版。</n-li
-    >
+    > -->
     <n-li
       >如果需要编辑大量页面，请查看<n-a
         tag="a"

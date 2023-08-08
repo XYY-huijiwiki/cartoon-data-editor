@@ -70,7 +70,7 @@ const handleBeforeLeave = (value: string) => {
         <n-tab-pane name="列表编辑" display-directive="show:lazy" :disabled="!isValidate">
           <list-editor></list-editor>
         </n-tab-pane>
-        <n-tab-pane name="代码编辑" display-directive="show:lazy">
+        <n-tab-pane name="代码编辑" display-directive="show:lazy" disabled>
           <code-editor ref="codeEditorRef"></code-editor>
         </n-tab-pane>
         <n-tab-pane name="使用说明" display-directive="show:lazy">
