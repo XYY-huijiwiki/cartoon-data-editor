@@ -2,7 +2,6 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import legacy from '@vitejs/plugin-legacy'
 
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
@@ -14,9 +13,6 @@ export default defineConfig({
     Components({
       resolvers: [NaiveUiResolver()],
       dirs: ['src/components', 'src/views']
-    }),
-    legacy({
-      targets: ['defaults', 'not IE 11']
     })
   ],
   resolve: {
