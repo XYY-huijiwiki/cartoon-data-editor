@@ -12,7 +12,8 @@ export default defineConfig({
   plugins: [
     vue(),
     Components({
-      resolvers: [NaiveUiResolver()]
+      resolvers: [NaiveUiResolver()],
+      dirs: ['src/components', 'src/views']
     }),
     legacy({
       targets: ['defaults', 'not IE 11']
