@@ -51,6 +51,10 @@ async function uploadData() {
     $message.error('保存失败')
   } finally {
     loading.value = false
+    // refresh page after 2s
+    setTimeout(() => {
+      location.reload()
+    }, 2000)
   }
 }
 
