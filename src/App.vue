@@ -2,20 +2,17 @@
 import { darkTheme, zhCN } from 'naive-ui'
 import message from '@/ts/message'
 import { onMounted, ref } from 'vue'
-import type { Ref } from 'vue'
 import { useDataStore } from '@/stores/dataStore'
 import { storeToRefs } from 'pinia'
-import codeEditor from './views/codeEditor.vue'
 
 // 判断是否为测试环境
 let debug = import.meta.env.DEV
 
 // 定义一些变量
-let { data, isValidate } = storeToRefs(useDataStore())
+let { data } = storeToRefs(useDataStore())
 let loading = ref(false)
 let title = ref(debug ? `爱洗澡的大象` : mw.config.values.wgTitle)
 let editSummary = ref('')
-let codeEditorRef: Ref<InstanceType<typeof codeEditor> | null> = ref(null)
 
 // 获取数据的功能
 async function getData(title: string) {
@@ -57,24 +54,14 @@ async function uploadData() {
     }, 2000)
   }
 }
-
-const handleBeforeLeave = (value: string) => {
-  if (value === '代码编辑' && codeEditorRef.value) {
-    codeEditorRef.value.updateEditorValue()
-  }
-  return true
-}
 </script>
 
 <template>
   <n-config-provider :locale="zhCN" :theme="darkTheme">
     <n-global-style v-if="debug"/>
-      <n-tabs animated default-value="列表编辑" @before-leave="handleBeforeLeave">
-        <n-tab-pane name="列表编辑" display-directive="show:lazy" :disabled="!isValidate">
+      <n-tabs animated default-value="列表编辑">
+        <n-tab-pane name="列表编辑" display-directive="show:lazy">
           <list-editor></list-editor>
-        </n-tab-pane>
-        <n-tab-pane name="代码编辑" display-directive="show:lazy" disabled>
-          <code-editor ref="codeEditorRef"></code-editor>
         </n-tab-pane>
         <n-tab-pane name="使用说明" display-directive="show:lazy">
           <user-guide></user-guide>
@@ -83,7 +70,7 @@ const handleBeforeLeave = (value: string) => {
       <n-divider/>
         <n-input-group>
           <n-input v-model:value="editSummary" placeholder="编辑摘要（必填）"></n-input>
-          <n-button @click="uploadData()" :loading="loading" :disabled="!isValidate">保存</n-button>
+          <n-button @click="uploadData()" :loading="loading">保存</n-button>
         </n-input-group>
   </n-config-provider>
 </template>

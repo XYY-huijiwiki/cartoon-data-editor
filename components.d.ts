@@ -7,11 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    CodeEditor: typeof import('./src/views/codeEditor.vue')['default']
     ListEditor: typeof import('./src/views/listEditor.vue')['default']
     MaterialSymbol: typeof import('./src/components/material-symbol.vue')['default']
     NA: typeof import('naive-ui')['NA']
-    NAlert: typeof import('naive-ui')['NAlert']
     NButton: typeof import('naive-ui')['NButton']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDivider: typeof import('naive-ui')['NDivider']
