@@ -68,8 +68,7 @@ const handleBeforeLeave = (value: string) => {
 
 <template>
   <n-config-provider :locale="zhCN" :theme="darkTheme">
-    <n-global-style />
-    <n-card>
+    <n-global-style v-if="debug"/>
       <n-tabs animated default-value="列表编辑" @before-leave="handleBeforeLeave">
         <n-tab-pane name="列表编辑" display-directive="show:lazy" :disabled="!isValidate">
           <list-editor></list-editor>
@@ -81,12 +80,10 @@ const handleBeforeLeave = (value: string) => {
           <user-guide></user-guide>
         </n-tab-pane>
       </n-tabs>
-      <template #action>
+      <n-divider/>
         <n-input-group>
           <n-input v-model:value="editSummary" placeholder="编辑摘要（必填）"></n-input>
           <n-button @click="uploadData()" :loading="loading" :disabled="!isValidate">保存</n-button>
         </n-input-group>
-      </template>
-    </n-card>
   </n-config-provider>
 </template>
