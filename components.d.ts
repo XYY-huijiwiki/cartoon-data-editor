@@ -21,9 +21,11 @@ declare module 'vue' {
     NInputGroup: typeof import('naive-ui')['NInputGroup']
     NInputNumber: typeof import('naive-ui')['NInputNumber']
     NLi: typeof import('naive-ui')['NLi']
+    NPopconfirm: typeof import('naive-ui')['NPopconfirm']
     NSkeleton: typeof import('naive-ui')['NSkeleton']
     NTabPane: typeof import('naive-ui')['NTabPane']
     NTabs: typeof import('naive-ui')['NTabs']
+    NText: typeof import('naive-ui')['NText']
     NUl: typeof import('naive-ui')['NUl']
     UserGuide: typeof import('./src/views/userGuide.vue')['default']
   }
