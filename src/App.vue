@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { darkTheme, zhCN } from 'naive-ui'
+import { darkTheme, zhCN, useOsTheme } from 'naive-ui'
 import message from '@/ts/message'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref,computed } from 'vue'
 import { useDataStore } from '@/stores/dataStore'
 import { storeToRefs } from 'pinia'
 
 // 判断是否为测试环境
 let debug = import.meta.env.DEV
+
+// 主题
+let theme = computed(() => useOsTheme().value === 'dark' ? darkTheme : null)
 
 // 定义一些变量
 let { data } = storeToRefs(useDataStore())
@@ -57,7 +60,7 @@ async function uploadData() {
 </script>
 
 <template>
-  <n-config-provider :locale="zhCN" :theme="darkTheme">
+  <n-config-provider :locale="zhCN" :theme="theme">
     <n-global-style v-if="debug"/>
       <n-tabs animated default-value="列表编辑">
         <n-tab-pane name="列表编辑" display-directive="show:lazy">

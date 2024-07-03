@@ -23,5 +23,5 @@ export default defineConfig({
   build: {
     manifest: true
   },
-  base: 'https://cdn.jsdelivr.net/gh/XYY-huijiwiki/cartoon-data-editor@dist/'
+  base: '/cartoon-data-editor/'
 })
